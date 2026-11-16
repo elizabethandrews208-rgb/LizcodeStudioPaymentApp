@@ -1,0 +1,32 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casual Workers Pay</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+<h1>Casual workers pay</h1>
+<p class="sub">Enter work done per week. Amounts, packing pay and deductions are worked out for you.</p>
+<div class="tabs" role="tablist">
+<button role="tab" data-tab="entries">Entries</button><button role="tab" data-tab="pay">Pay list</button><button role="tab" data-tab="rates">Rates</button>
+</div>
+<div class="bar"><label for="wk">Week starting</label><select id="wk"></select><input type="date" id="newwk" aria-label="Add a week"><button id="addwk">Add week</button></div>
+<div class="tt" id="tt"></div>
+
+<section id="s-entries"><div class="bar"><button class="p" id="add">Add entry</button></div>
+<div class="w"><table><thead><tr><th>Worker</th><th>Task</th><th class="n">Quantity</th><th class="n">Rate (₦)</th><th class="n">Amount (₦)</th><th></th></tr></thead><tbody id="eb"></tbody></table><div class="empty" id="ee" hidden>No entries this week. Select Add entry.</div></div>
+<p class="note">Leave Rate empty to use the rate from the Rates tab. Packing of harvests is added automatically from each worker’s harvest count. For deductions, pick a Deduction task and type the naira amount as the quantity.</p>
+<datalist id="wl"></datalist></section>
+
+<section id="s-pay" hidden><div class="bar"><button id="copy">Copy pay list as CSV</button></div>
+<div class="w"><table><thead><tr><th>Worker</th><th class="n">Harvest</th><th class="n">Packing</th><th class="n">Other work</th><th class="n">Deductions</th><th class="n">Total due</th><th>Bank</th><th>Account no.</th><th>Paid</th></tr></thead><tbody id="pb"></tbody><tfoot id="pf"></tfoot></table><div class="empty" id="pe" hidden>No work entered for this week.</div></div></section>
+
+<section id="s-rates" hidden><div class="w"><table style="min-width:520px"><thead><tr><th>Task</th><th class="n">Rate per unit (₦)</th></tr></thead><tbody id="rb"></tbody></table></div>
+<p class="note">Packing of harvests uses the tiers from your sheet: up to 50 fruits ₦1,500; 51–70 ₦2,500; 71–100 ₦3,000; 101–150 ₦5,000; 151–200 ₦7,000; 201–250 ₦8,000; 251 and above ₦10,000.</p></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
